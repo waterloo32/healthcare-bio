@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>바이오/헬스케어 뉴스 큐레이션</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>바이오/헬스케어 뉴스 큐레이션</h1>
+  <p class="subtitle">미국 바이오/헬스케어 업계 뉴스 · 마케팅·신사업·서비스 우선</p>
+  <p class="subtitle" id="last-updated"></p>
+</header>
+
+<main class="container">
+  <section class="filters">
+    <div class="filter-row" id="category-chips"></div>
+    <div class="filter-row">
+      <input type="text" id="search-input" placeholder="키워드 검색 (제목/본문)">
+      <select id="source-select">
+        <option value="">전체 매체</option>
+      </select>
+      <input type="date" id="date-from">
+      <span class="date-sep">~</span>
+      <input type="date" id="date-to">
+      <button id="reset-btn">초기화</button>
+    </div>
+  </section>
+
+  <section id="status-bar" class="status-bar"></section>
+
+  <section id="article-list" class="article-grid"></section>
+
+  <section class="pagination">
+    <button id="prev-page">이전</button>
+    <span id="page-info"></span>
+    <button id="next-page">다음</button>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

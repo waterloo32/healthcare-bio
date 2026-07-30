@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+logs/*.log
+.env
+
+# Claude Code 로컬 설정/락 파일 (프로젝트 코드 아님, 공개 저장소에 올리지 않음)
+.claude/
+
+# 프로젝트와 무관한 개인 메모
+Claude Code 자동승인 셋업 가이드 (Windows PowerShell).md
+
+# data/news.db는 GitHub Actions 실행 간 dedup/누적 상태를 유지하기 위해 의도적으로 커밋한다.

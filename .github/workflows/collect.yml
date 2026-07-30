@@ -1,0 +1,44 @@
+name: Collect News
+
+on:
+  schedule:
+    # PRD FR-1: 1일 1~4회. UTC 기준 00/06/12/18시 (KST 09/15/21/03시)
+    - cron: "0 0,6,12,18 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-news
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r backend/requirements.txt
+
+      - name: Run collection pipeline
+        run: python backend/run_collect.py
+
+      - name: Export static JSON for GitHub Pages
+        run: python backend/export_static.py
+
+      - name: Commit and push updated data
+        run: |
+          git config user.name "news-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/news.db docs/data/articles.json docs/data/meta.json
+          git diff --cached --quiet || git commit -m "chore: update news data ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+          git push

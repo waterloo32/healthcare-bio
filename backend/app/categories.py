@@ -1,0 +1,33 @@
+"""카테고리 체계 (PRD 7절). 마케팅/신사업/서비스를 우선 노출 대상으로 표시."""
+
+CATEGORY_MARKETING = "marketing_branding"
+CATEGORY_NEW_BUSINESS = "new_business_strategy"
+CATEGORY_SERVICE_LAUNCH = "service_launch"
+CATEGORY_RND_CLINICAL = "rnd_clinical"
+CATEGORY_INVESTMENT_MA = "investment_ma"
+CATEGORY_REGULATORY = "regulatory_policy"
+CATEGORY_OTHER = "other"
+
+# 표시 순서: FR-9(마케팅/신사업/서비스 우선 노출)에 따라 앞쪽 배치
+CATEGORY_ORDER = [
+    CATEGORY_MARKETING,
+    CATEGORY_NEW_BUSINESS,
+    CATEGORY_SERVICE_LAUNCH,
+    CATEGORY_RND_CLINICAL,
+    CATEGORY_INVESTMENT_MA,
+    CATEGORY_REGULATORY,
+    CATEGORY_OTHER,
+]
+
+CATEGORY_LABELS_KO = {
+    CATEGORY_MARKETING: "마케팅/브랜딩",
+    CATEGORY_NEW_BUSINESS: "신사업/전략",
+    CATEGORY_SERVICE_LAUNCH: "서비스 출시/업데이트",
+    CATEGORY_RND_CLINICAL: "R&D/임상 연구",
+    CATEGORY_INVESTMENT_MA: "투자/M&A",
+    CATEGORY_REGULATORY: "규제/정책",
+    CATEGORY_OTHER: "기타",
+}
+
+# FR-9: 목록/필터 상단 우선 노출 카테고리
+PRIORITY_CATEGORIES = {CATEGORY_MARKETING, CATEGORY_NEW_BUSINESS, CATEGORY_SERVICE_LAUNCH}
